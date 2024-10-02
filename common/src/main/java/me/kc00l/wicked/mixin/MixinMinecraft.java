@@ -1,6 +1,6 @@
 package me.kc00l.wicked.mixin;
 
-import me.kc00l.wicked.Constants;
+import me.kc00l.wicked.data.Constants;
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

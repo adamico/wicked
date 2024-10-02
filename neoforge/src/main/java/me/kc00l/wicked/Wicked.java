@@ -1,6 +1,7 @@
 package me.kc00l.wicked;
 
 
+import me.kc00l.wicked.data.Constants;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 

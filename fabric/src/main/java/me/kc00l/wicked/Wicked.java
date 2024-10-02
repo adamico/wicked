@@ -1,5 +1,6 @@
 package me.kc00l.wicked;
 
+import me.kc00l.wicked.data.Constants;
 import net.fabricmc.api.ModInitializer;
 
 public class Wicked implements ModInitializer {
