@@ -21,6 +21,10 @@ dependencies {
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
+
+    runtimeOnly "com.natamus.collective-ml:collective-neoforge:${minecraft_version}-${collective_version}"
+    compileOnly "com.natamus.collective-ml:collective-neoforge:${minecraft_version}-${collective_version}"
+    compileOnly "com.natamus.collective-ml:collective:${minecraft_version}-${collective_version}"
 }
 
 configurations {

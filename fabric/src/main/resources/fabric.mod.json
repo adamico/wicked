@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "me.kc00l.wicked.Wicked"
+            "me.kc00l.wicked.ModFabric"
         ]
     },
     "mixins": [

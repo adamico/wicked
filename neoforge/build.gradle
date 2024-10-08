@@ -37,3 +37,9 @@ neoForge {
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    runtimeOnly "com.natamus.collective-ml:collective-neoforge:${minecraft_version}-${collective_version}"
+    compileOnly "com.natamus.collective-ml:collective-neoforge:${minecraft_version}-${collective_version}"
+    compileOnly "com.natamus.collective-ml:collective:${minecraft_version}-${collective_version}"
+}
