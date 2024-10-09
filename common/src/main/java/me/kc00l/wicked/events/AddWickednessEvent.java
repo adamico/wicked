@@ -1,21 +1,23 @@
 package me.kc00l.wicked.events;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.damagesource.DamageSource;
+import me.kc00l.wicked.util.Reference;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.level.Level;
 
 public class AddWickednessEvent {
-    public static void onAnimalDeath(Entity entity) {
-        int wickednessAmount = 1;
-        entity.level().addParticle(
-                ParticleTypes.EXPLOSION_EMITTER,
-                (double) entity.getX() + 0.5,
-                (double) entity.getY() + 1,
-                (double) entity.getZ() + 0.5,
-                0.0,
-                0.0,
-                0.0
-        );
+    public static void onAnimalDeath(Entity animal, Entity player) {
+        Level level = animal.level();
+
+        //TODO: killing monsters removes wickedness?
+        if (!(animal instanceof Animal)) return;
+        if (level.isClientSide) return;
+
+        if (player instanceof ServerPlayer) {
+            Reference.LOG.info("entity {} was damaged by player", animal);
+        } else {
+            Reference.LOG.info("entity {} was not damaged by player", animal);
+        }
     }
 }
