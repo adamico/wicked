@@ -4,6 +4,7 @@ package me.kc00l.wicked;
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
 import me.kc00l.wicked.common.events.NeoForgeAddWickednessEvent;
+import me.kc00l.wicked.common.item.ModCreativeModeTabs;
 import me.kc00l.wicked.common.item.ModItems;
 import me.kc00l.wicked.common.network.Networking;
 import me.kc00l.wicked.setup.config.ServerConfig;
@@ -32,6 +33,8 @@ public class ModNeoForge {
         RegisterMod.register(Reference.NAME, Reference.MOD_ID, Reference.VERSION, Reference.ACCEPTED_VERSIONS);
         Reference.LOG.info("Hello NeoForge world!");
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_CONFIG);
+
+        ModCreativeModeTabs.register(modEventBus);
 
 //        ModCommon.init();
         ModItems.register(modEventBus);
