@@ -1,6 +1,6 @@
 package me.kc00l.wicked.setup.registry;
 
-import me.kc00l.wicked.capability.WickednessCap;
+import me.kc00l.wicked.common.capability.WickednessCap;
 import me.kc00l.wicked.util.Reference;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;

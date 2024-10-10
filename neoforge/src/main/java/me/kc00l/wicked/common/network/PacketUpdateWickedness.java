@@ -1,7 +1,7 @@
-package me.kc00l.wicked.network;
+package me.kc00l.wicked.common.network;
 
 import me.kc00l.wicked.ModNeoForge;
-import me.kc00l.wicked.capability.WickednessData;
+import me.kc00l.wicked.common.capability.WickednessData;
 import me.kc00l.wicked.setup.registry.AttachmentsRegistry;
 import me.kc00l.wicked.setup.registry.CapabilityRegistry;
 import me.kc00l.wicked.util.Reference;

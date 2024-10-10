@@ -1,6 +1,6 @@
 // credits to https://github.com/baileyholl/Ars-Nouveau/blob/main/src/main/java/com/hollingsworth/arsnouveau/common/network/Networking.java
 
-package me.kc00l.wicked.network;
+package me.kc00l.wicked.common.network;
 
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.client.Minecraft;

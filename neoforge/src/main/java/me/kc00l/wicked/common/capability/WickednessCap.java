@@ -1,7 +1,7 @@
-package me.kc00l.wicked.capability;
+package me.kc00l.wicked.common.capability;
 
-import me.kc00l.wicked.network.Networking;
-import me.kc00l.wicked.network.PacketUpdateWickedness;
+import me.kc00l.wicked.common.network.Networking;
+import me.kc00l.wicked.common.network.PacketUpdateWickedness;
 import me.kc00l.wicked.setup.registry.AttachmentsRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;

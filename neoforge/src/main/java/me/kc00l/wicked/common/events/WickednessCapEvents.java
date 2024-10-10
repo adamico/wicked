@@ -1,7 +1,6 @@
-package me.kc00l.wicked.events;
+package me.kc00l.wicked.common.events;
 
-import me.kc00l.wicked.capability.WickednessCap;
-import me.kc00l.wicked.capability.WickednessData;
+import me.kc00l.wicked.common.capability.WickednessCap;
 import me.kc00l.wicked.util.WickednessUtil;
 import me.kc00l.wicked.setup.registry.CapabilityRegistry;
 import me.kc00l.wicked.setup.config.ServerConfig;

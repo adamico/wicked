@@ -1,4 +1,4 @@
-package me.kc00l.wicked.capability;
+package me.kc00l.wicked.common.capability;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;

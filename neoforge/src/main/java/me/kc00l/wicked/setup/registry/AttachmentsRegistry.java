@@ -1,6 +1,6 @@
 package me.kc00l.wicked.setup.registry;
 
-import me.kc00l.wicked.capability.WickednessData;
+import me.kc00l.wicked.common.capability.WickednessData;
 import me.kc00l.wicked.util.Reference;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
