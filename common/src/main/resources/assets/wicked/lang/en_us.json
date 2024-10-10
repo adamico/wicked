@@ -1,6 +1,11 @@
 {
-  "item.wicked.karma_compass": "Karma Compass",
   "creativetab.wicked.wicked_items": "Wicked Items",
+
+  "item.wicked.karma_compass": "Karma Compass",
   "item.wicked.wicked_essence": "Wicked Essence",
+
+  "tooltip.wicked.karma_compass": "Press §eShift§r for more Information",
+  "tooltip.wicked.karma_compass.shift_down": "Use this to get your current wickedness amount",
+
   "command.wicked.current_wickedness": "Your current wickedness is %s"
 }

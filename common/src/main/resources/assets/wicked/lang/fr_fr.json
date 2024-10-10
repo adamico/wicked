@@ -1,6 +1,11 @@
 {
-  "item.wicked.karma_compass": "Boussole de Karma",
   "creativetab.wicked.wicked_items": "Objets Méchants",
+
+  "item.wicked.karma_compass": "Boussole de Karma",
   "item.wicked.wicked_essence": "Essence méchante",
+
+  "tooltip.wicked.karma_compass": "Appuyez sur §eMaj§r pour avoir plus d'info",
+  "tooltip.wicked.karma_compass.shift_down": "Utilisez ceci pour connaître votre niveau de méchanceté",
+
   "command.wicked.current_wickedness": "Vous avez %s méchanceté"
 }

@@ -2,6 +2,7 @@ package me.kc00l.wicked.common.item.custom;
 
 import me.kc00l.wicked.common.capability.WickednessCap;
 import me.kc00l.wicked.setup.registry.CapabilityRegistry;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -12,7 +13,10 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 public class KarmaCompassItem extends Item {
     public KarmaCompassItem(Properties properties) {
@@ -35,5 +39,13 @@ public class KarmaCompassItem extends Item {
 
         return InteractionResultHolder.success(itemstack);
 
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        String translatableKey = (Screen.hasShiftDown()) ? "tooltip.wicked.karma_compass.shift_down" : "tooltip.wicked.karma_compass";
+        tooltipComponents.add(Component.translatable(translatableKey));
+
+        super.appendHoverText(pStack, context, tooltipComponents, tooltipFlag);
     }
 }
