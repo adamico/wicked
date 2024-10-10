@@ -1,5 +1,6 @@
 {
   "item.wicked.karma_compass": "Boussole de Karma",
   "creativetab.wicked.wicked_items": "Objets Méchants",
-  "item.wicked.wicked_essence": "Essence méchante"
+  "item.wicked.wicked_essence": "Essence méchante",
+  "command.wicked.current_wickedness": "Vous avez %s méchanceté"
 }

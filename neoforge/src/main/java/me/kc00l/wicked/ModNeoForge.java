@@ -3,7 +3,9 @@ package me.kc00l.wicked;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
-import me.kc00l.wicked.common.events.NeoForgeAddWickednessEvent;
+import me.kc00l.wicked.common.command.CheckCurrentWickednessCommand;
+import me.kc00l.wicked.common.event.CommandEvents;
+import me.kc00l.wicked.common.event.NeoForgeAddWickednessEvent;
 import me.kc00l.wicked.common.item.ModCreativeModeTabs;
 import me.kc00l.wicked.common.item.ModItems;
 import me.kc00l.wicked.common.network.Networking;
@@ -55,5 +57,6 @@ public class ModNeoForge {
 
     private void loadComplete(final FMLLoadCompleteEvent event) {
         NeoForge.EVENT_BUS.register(NeoForgeAddWickednessEvent.class);
+        NeoForge.EVENT_BUS.register(CommandEvents.class);
     }
 }

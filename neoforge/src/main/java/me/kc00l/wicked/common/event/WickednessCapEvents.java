@@ -1,4 +1,4 @@
-package me.kc00l.wicked.common.events;
+package me.kc00l.wicked.common.event;
 
 import me.kc00l.wicked.common.capability.WickednessCap;
 import me.kc00l.wicked.util.WickednessUtil;
