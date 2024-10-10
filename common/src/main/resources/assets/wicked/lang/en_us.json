@@ -9,6 +9,7 @@
 
   "command.wicked.current_wickedness": "Your current wickedness is %s",
   "command.wicked.set_max_wickedness": "Your wickedness is now maxed",
+  "command.wicked.clear_wickedness": "Your wickedness is now 0",
   "command.wicked.set_wickedness_decay.off": "Your wickedness does not decay",
   "command.wicked.set_wickedness_decay.on": "Your wickedness decays"
 }

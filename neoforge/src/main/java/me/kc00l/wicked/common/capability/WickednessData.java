@@ -39,7 +39,7 @@ public class WickednessData implements INBTSerializable<CompoundTag> {
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag tag) {
         setWickedness(tag.getByte("current"));
         setMaxWickedness(tag.getByte("max"));
-        setMaxWickedness(tag.getByte("decay"));
+        setWickednessDecay(tag.getBoolean("decay"));
     }
 
     public boolean doesWickednessDecay() {

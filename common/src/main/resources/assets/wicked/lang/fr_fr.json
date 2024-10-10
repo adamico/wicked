@@ -9,6 +9,7 @@
 
   "command.wicked.current_wickedness": "Vous avez %s méchanceté",
   "command.wicked.set_max_wickedness": "Votre méchanceté est maxée",
+  "command.wicked.clear_wickedness": "Votre méchanceté est 0",
   "command.wicked.set_wickedness_decay.off": "Votre méchanceté ne baisse pas",
   "command.wicked.set_wickedness_decay.on": "Votre méchanceté baisse"
 }
