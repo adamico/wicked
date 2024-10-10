@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.wicked.wicked_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.KARMA_COMPASS);
+                        output.accept(ModItems.WICKED_ESSENCE);
                     }).build());
 
     public static void register(IEventBus eventBus) {

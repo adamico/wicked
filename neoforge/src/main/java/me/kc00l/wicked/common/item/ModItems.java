@@ -13,6 +13,9 @@ public class ModItems {
     public static final DeferredItem<Item> KARMA_COMPASS = ITEMS.register("karma_compass",
             () -> new KarmaCompassItem(new Item.Properties().durability(32)));
 
+    public static final DeferredItem<Item> WICKED_ESSENCE = ITEMS.register("wicked_essence",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
