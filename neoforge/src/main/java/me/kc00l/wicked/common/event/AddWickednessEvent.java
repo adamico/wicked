@@ -16,7 +16,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 @EventBusSubscriber
-public class NeoForgeAddWickednessEvent {
+public class AddWickednessEvent {
     @SubscribeEvent
     public static void onAnimalDeath(LivingDeathEvent event) {
         Entity entity = event.getEntity();
@@ -27,9 +27,9 @@ public class NeoForgeAddWickednessEvent {
 
         if (sourceEntity instanceof ServerPlayer) {
             Reference.LOG.info("entity {} was damaged by player", entity);
-            WickednessCap wickedness = CapabilityRegistry.getWickedness((LivingEntity) sourceEntity);
+            WickednessCap wickednessCap = CapabilityRegistry.getWickedness((LivingEntity) sourceEntity);
             int wickednessAmount = getWickednessAmount(entity);
-            int currentWickedness = wickedness.addWickedness(wickednessAmount);
+            int currentWickedness = wickednessCap.addWickedness(wickednessAmount);
             Reference.LOG.info("killing entity {} changed player {} wickedness to {}", entity, sourceEntity, currentWickedness);
         } else {
             Reference.LOG.info("entity {} was not damaged by player", entity);

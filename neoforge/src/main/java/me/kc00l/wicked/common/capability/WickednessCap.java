@@ -54,8 +54,18 @@ public class WickednessCap {
         this.wickednessData = wickednessData;
     }
 
+    public boolean setWickednessDecay(boolean wickednessDecay) {
+        wickednessData.setWickednessDecay(wickednessDecay);
+        return this.wickednessDecays();
+    }
+
+    public boolean wickednessDecays() {
+        return wickednessData.doesWickednessDecay();
+    }
+
     public void syncToClient(ServerPlayer player) {
         CompoundTag tag = wickednessData.serializeNBT(player.registryAccess());
         Networking.sendToPlayerClient(new PacketUpdateWickedness(tag), player);
     }
+
 }

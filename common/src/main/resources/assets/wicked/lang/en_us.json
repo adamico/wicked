@@ -7,5 +7,8 @@
   "tooltip.wicked.karma_compass": "Press §eShift§r for more Information",
   "tooltip.wicked.karma_compass.shift_down": "Use this to get your current wickedness amount",
 
-  "command.wicked.current_wickedness": "Your current wickedness is %s"
+  "command.wicked.current_wickedness": "Your current wickedness is %s",
+  "command.wicked.set_max_wickedness": "Your wickedness is now maxed",
+  "command.wicked.set_wickedness_decay.off": "Your wickedness does not decay",
+  "command.wicked.set_wickedness_decay.on": "Your wickedness decays"
 }

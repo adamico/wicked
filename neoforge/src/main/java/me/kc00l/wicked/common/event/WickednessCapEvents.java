@@ -1,7 +1,6 @@
 package me.kc00l.wicked.common.event;
 
 import me.kc00l.wicked.common.capability.WickednessCap;
-import me.kc00l.wicked.util.WickednessUtil;
 import me.kc00l.wicked.setup.registry.CapabilityRegistry;
 import me.kc00l.wicked.setup.config.ServerConfig;
 import me.kc00l.wicked.util.Reference;
@@ -26,18 +25,18 @@ public class WickednessCapEvents {
         if (wickednessCap == null) return;
 
         boolean sync = false;
-        boolean forceSync = player.level().getGameTime() % 60 == 0;
+//        boolean forceSync = player.level().getGameTime() % 60 == 0;
 
-        Reference.LOG.info("Trying reducing wickedness");
-        if (wickednessCap.getCurrentWickedness() > 0 || forceSync) {
-            double decayPerSecond = WickednessUtil.getWickednessDecay(player) / Math.max(1, ((int) MEAN_TPS / ServerConfig.WICKEDNESS_DECAY_INTERVAL.get()));
+        if (wickednessCap.getCurrentWickedness() > 0 && wickednessCap.wickednessDecays()) {
+            Reference.LOG.info("Trying reducing wickedness");
+            double decayPerSecond = Math.max(1, ((int) MEAN_TPS / ServerConfig.WICKEDNESS_DECAY_INTERVAL.get()));
             int currentWickedness = wickednessCap.removeWickedness((int) decayPerSecond);
             sync = true;
             Reference.LOG.info("Reduced wickedness by {}, new wickedness is {}", decayPerSecond, currentWickedness);
         }
 
         int max = ServerConfig.INIT_MAX_WICKEDNESS.get();
-        if (wickednessCap.getMaxWickedness() != max || forceSync) {
+        if (wickednessCap.getMaxWickedness() != max) {
             wickednessCap.setMaxWickedness(max);
             sync = true;
         }
@@ -62,13 +61,13 @@ public class WickednessCapEvents {
 
     private static void syncPlayerEvent(Player playerEntity) {
         if (playerEntity instanceof ServerPlayer serverPlayer) {
-            WickednessCap wickedness = CapabilityRegistry.getWickedness(playerEntity);
+            WickednessCap wickednessCap = CapabilityRegistry.getWickedness(playerEntity);
 
-            if (wickedness == null) return;
+            if (wickednessCap == null) return;
 
-            wickedness.syncToClient(serverPlayer);
+            wickednessCap.syncToClient(serverPlayer);
 
-            int currentWickedness = wickedness.getCurrentWickedness();
+            int currentWickedness = wickednessCap.getCurrentWickedness();
             Reference.LOG.info("Hello {}, your current wickedness is {}", playerEntity, currentWickedness);
         }
     }

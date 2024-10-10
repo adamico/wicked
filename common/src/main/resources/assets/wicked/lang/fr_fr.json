@@ -7,5 +7,8 @@
   "tooltip.wicked.karma_compass": "Appuyez sur §eMaj§r pour avoir plus d'info",
   "tooltip.wicked.karma_compass.shift_down": "Utilisez ceci pour connaître votre niveau de méchanceté",
 
-  "command.wicked.current_wickedness": "Vous avez %s méchanceté"
+  "command.wicked.current_wickedness": "Vous avez %s méchanceté",
+  "command.wicked.set_max_wickedness": "Votre méchanceté est maxée",
+  "command.wicked.set_wickedness_decay.off": "Votre méchanceté ne baisse pas",
+  "command.wicked.set_wickedness_decay.on": "Votre méchanceté baisse"
 }

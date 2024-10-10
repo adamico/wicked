@@ -8,6 +8,7 @@ import org.jetbrains.annotations.UnknownNullability;
 public class WickednessData implements INBTSerializable<CompoundTag> {
     private int wickedness;
     private int maxWickedness;
+    private boolean wickednessDecay;
 
     public int getWickedness() {
         return wickedness;
@@ -30,6 +31,7 @@ public class WickednessData implements INBTSerializable<CompoundTag> {
         CompoundTag tag = new CompoundTag();
         tag.putDouble("current", getWickedness());
         tag.putDouble("max", getMaxWickedness());
+        tag.putBoolean("decay", doesWickednessDecay());
         return tag;
     }
 
@@ -37,5 +39,14 @@ public class WickednessData implements INBTSerializable<CompoundTag> {
     public void deserializeNBT(HolderLookup.Provider provider, CompoundTag tag) {
         setWickedness(tag.getByte("current"));
         setMaxWickedness(tag.getByte("max"));
+        setMaxWickedness(tag.getByte("decay"));
+    }
+
+    public boolean doesWickednessDecay() {
+        return wickednessDecay;
+    }
+
+    public void setWickednessDecay(boolean wickednessDecay) {
+        this.wickednessDecay = wickednessDecay;
     }
 }
