@@ -30,14 +30,12 @@ public class NeoForgeAddWickednessEvent {
                     EntityType.HORSE, 50
             );
 
-
     @SubscribeEvent
     public static void onAnimalDeath(LivingDeathEvent event) {
         Entity entity = event.getEntity();
         Entity sourceEntity = event.getSource().getDirectEntity();
         Level level = entity.level();
 
-        //TODO: killing monsters removes wickedness?
         if (level.isClientSide) return;
 
         if (sourceEntity instanceof ServerPlayer) {
