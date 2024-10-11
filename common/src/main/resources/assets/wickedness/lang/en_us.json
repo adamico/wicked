@@ -11,5 +11,7 @@
   "command.wickedness.set_max_wickedness": "Your wickedness is now maxed",
   "command.wickedness.clear_wickedness": "Your wickedness is now 0",
   "command.wickedness.set_wickedness_decay.off": "Your wickedness does not decay",
-  "command.wickedness.set_wickedness_decay.on": "Your wickedness decays"
+  "command.wickedness.set_wickedness_decay.on": "Your wickedness decays",
+
+  "message.wickedness.naughty": "You have been naughty! Feel my wrath!"
 }

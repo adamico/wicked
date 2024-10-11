@@ -25,7 +25,6 @@ public class WickednessCapEvents {
         if (wickednessCap == null) return;
 
         boolean sync = false;
-//        boolean forceSync = player.level().getGameTime() % 60 == 0;
 
         if (wickednessCap.getCurrentWickedness() > 0 && wickednessCap.wickednessDecays()) {
             Reference.LOG.info("Trying reducing wickedness");

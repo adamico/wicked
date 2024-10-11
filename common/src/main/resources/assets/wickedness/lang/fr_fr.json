@@ -11,5 +11,7 @@
   "command.wickedness.set_max_wickedness": "Votre méchanceté est maxée",
   "command.wickedness.clear_wickedness": "Votre méchanceté est 0",
   "command.wickedness.set_wickedness_decay.off": "Votre méchanceté ne baisse pas",
-  "command.wickedness.set_wickedness_decay.on": "Votre méchanceté baisse"
+  "command.wickedness.set_wickedness_decay.on": "Votre méchanceté baisse",
+
+  "message.wickedness.naughty": "Vous avez été méchant! Vous allez ressentir ma colère!"
 }
