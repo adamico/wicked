@@ -3,8 +3,8 @@ package me.kc00l.wickedness;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
-import me.kc00l.wickedness.common.event.CommandEvents;
 import me.kc00l.wickedness.common.event.AddWickednessEvent;
+import me.kc00l.wickedness.common.event.CommandEvents;
 import me.kc00l.wickedness.common.item.ModCreativeModeTabs;
 import me.kc00l.wickedness.common.item.ModItems;
 import me.kc00l.wickedness.common.network.Networking;
@@ -15,7 +15,6 @@ import me.kc00l.wickedness.setup.proxy.ServerProxy;
 import me.kc00l.wickedness.setup.registry.AttachmentsRegistry;
 import me.kc00l.wickedness.setup.registry.CapabilityRegistry;
 import me.kc00l.wickedness.util.Reference;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -23,7 +22,6 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @Mod(Reference.MOD_ID)
 public class ModNeoForge {
