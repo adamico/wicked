@@ -1,0 +1,15 @@
+{
+  "creativetab.wickedness.wickedness_items": "Wickedness Items",
+
+  "item.wickedness.karma_compass": "Karma Compass",
+  "item.wickedness.wickedness_essence": "Wickedness Essence",
+
+  "tooltip.wickedness.karma_compass": "Press §eShift§r for more Information",
+  "tooltip.wickedness.karma_compass.shift_down": "Use this to get your current wickedness amount",
+
+  "command.wickedness.current_wickedness": "Your current wickedness is %s",
+  "command.wickedness.set_max_wickedness": "Your wickedness is now maxed",
+  "command.wickedness.clear_wickedness": "Your wickedness is now 0",
+  "command.wickedness.set_wickedness_decay.off": "Your wickedness does not decay",
+  "command.wickedness.set_wickedness_decay.on": "Your wickedness decays"
+}

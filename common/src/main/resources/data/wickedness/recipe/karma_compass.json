@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wickedness",
+  "key": {
+    "e": {
+      "item": "wickedness:wickedness_essence"
+    },
+    "c": {
+      "item": "minecraft:compass"
+    }
+  },
+  "pattern": [
+    "eee",
+    "ece",
+    "eee"
+  ],
+  "result": {
+    "id": "wickedness:karma_compass"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "creativetab.wickedness.wickedness_items": "Objets Méchants",
+
+  "item.wickedness.karma_compass": "Boussole de Karma",
+  "item.wickedness.wickedness_essence": "Essence méchante",
+
+  "tooltip.wickedness.karma_compass": "Appuyez sur §eMaj§r pour avoir plus d'info",
+  "tooltip.wickedness.karma_compass.shift_down": "Utilisez ceci pour connaître votre niveau de méchanceté",
+
+  "command.wickedness.current_wickedness": "Vous avez %s méchanceté",
+  "command.wickedness.set_max_wickedness": "Votre méchanceté est maxée",
+  "command.wickedness.clear_wickedness": "Votre méchanceté est 0",
+  "command.wickedness.set_wickedness_decay.off": "Votre méchanceté ne baisse pas",
+  "command.wickedness.set_wickedness_decay.on": "Votre méchanceté baisse"
+}
