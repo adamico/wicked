@@ -11,12 +11,14 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
+import java.util.Objects;
+
 @EventBusSubscriber(modid = Reference.MOD_ID)
 public class WickednessCapEvents {
     public static double MEAN_TPS = 20.0;
 
     @SubscribeEvent
-    public static void playerTick(PlayerTickEvent.Pre event) {
+    public static void preReduceWickednessOnTick(PlayerTickEvent.Pre event) {
         Player player = event.getEntity();
         if (!(player instanceof ServerPlayer serverPlayer)) return;
         if (player.getCommandSenderWorld().getGameTime() % ServerConfig.WICKEDNESS_DECAY_INTERVAL.get() != 0) return;
@@ -58,6 +60,17 @@ public class WickednessCapEvents {
         syncPlayerEvent(event.getEntity());
     }
 
+    @SubscribeEvent
+    public static void setMeanTpsOnTick(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (player.level().isClientSide) return;
+        if (player.level().getGameTime() % 600 == 0 && player.getServer() != null) {
+            double meanTickTime = mean(Objects.requireNonNull(player.getServer().getTickTime(player.level().dimension()))) * 1.0E-6D;
+            double meanTPS = Math.min(1000.0 / meanTickTime, 20);
+            WickednessCapEvents.MEAN_TPS = Math.max(1, meanTPS);
+        }
+    }
+
     private static void syncPlayerEvent(Player playerEntity) {
         if (playerEntity instanceof ServerPlayer serverPlayer) {
             WickednessCap wickednessCap = CapabilityRegistry.getWickedness(playerEntity);
@@ -71,20 +84,10 @@ public class WickednessCapEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onTick(PlayerTickEvent.Post event) {
-        Player player = event.getEntity();
-        if (player.level().isClientSide) return;
-        if (player.level().getGameTime() % 600 == 0 && player.getServer() != null) {
-            double meanTickTime = mean(player.getServer().getTickTime(player.level().dimension())) * 1.0E-6D;
-            double meanTPS = Math.min(1000.0 / meanTickTime, 20);
-            WickednessCapEvents.MEAN_TPS = Math.max(1, meanTPS);
-        }
-    }
-
     private static long mean(long[] values) {
         long sum = 0L;
         for (long v : values) sum += v;
         return sum / values.length;
     }
+
 }

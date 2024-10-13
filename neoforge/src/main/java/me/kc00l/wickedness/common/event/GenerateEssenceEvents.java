@@ -15,9 +15,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
-@EventBusSubscriber
-public class DropWickednessEssenceEvent {
-
+@EventBusSubscriber(modid = Reference.MOD_ID)
+public class GenerateEssenceEvents {
     @SubscribeEvent
     public static void onPlayerDeath(LivingDeathEvent event) {
         Entity entity = event.getEntity();
@@ -36,7 +35,7 @@ public class DropWickednessEssenceEvent {
 
         if (currentWickedness > 0) {
             level.addFreshEntity(new ItemEntity(level, player.getX(), player.getY() + 0.5, player.getZ(),
-                    new ItemStack(ModItems.WICKEDNESS_ESSENCE.get(), Math.max(1, currentWickedness/10))
+                    new ItemStack(ModItems.WICKEDNESS_ESSENCE.get(), Math.max(1, currentWickedness / 10))
             ));
         }
 

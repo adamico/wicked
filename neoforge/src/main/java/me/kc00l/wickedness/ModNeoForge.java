@@ -3,8 +3,6 @@ package me.kc00l.wickedness;
 
 import com.natamus.collective.check.RegisterMod;
 import com.natamus.collective.check.ShouldLoadCheck;
-import me.kc00l.wickedness.common.event.AddWickednessEvent;
-import me.kc00l.wickedness.common.event.CommandEvents;
 import me.kc00l.wickedness.common.item.ModCreativeModeTabs;
 import me.kc00l.wickedness.common.item.ModItems;
 import me.kc00l.wickedness.common.network.Networking;
@@ -19,9 +17,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(Reference.MOD_ID)
 public class ModNeoForge {
@@ -30,14 +26,12 @@ public class ModNeoForge {
         if (!ShouldLoadCheck.shouldLoad(Reference.MOD_ID)) return;
 
         RegisterMod.register(Reference.NAME, Reference.MOD_ID, Reference.VERSION, Reference.ACCEPTED_VERSIONS);
-        Reference.LOG.info("Hello NeoForge world!");
         modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SERVER_CONFIG);
 
         ModCreativeModeTabs.register(modEventBus);
 
 //        ModCommon.init();
         ModItems.register(modEventBus);
-        modEventBus.addListener(this::loadComplete);
         modEventBus.addListener(Networking::register);
         modEventBus.addListener(CapabilityRegistry::registerCapabilities);
         AttachmentsRegistry.ATTACHMENT_TYPES.register(modEventBus);
@@ -45,8 +39,4 @@ public class ModNeoForge {
         ModNeoForge.proxy = (FMLEnvironment.dist.isClient()) ? new ClientProxy() : new ServerProxy();
     }
 
-    private void loadComplete(final FMLLoadCompleteEvent event) {
-        NeoForge.EVENT_BUS.register(AddWickednessEvent.class);
-        NeoForge.EVENT_BUS.register(CommandEvents.class);
-    }
 }

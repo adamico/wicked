@@ -7,13 +7,17 @@ import me.kc00l.wickedness.setup.config.ServerConfig;
 import me.kc00l.wickedness.setup.registry.CapabilityRegistry;
 import me.kc00l.wickedness.util.Reference;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Vindicator;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -22,10 +26,10 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-@EventBusSubscriber
-public class SpawnJackOLanternEvent {
+@EventBusSubscriber(modid = Reference.MOD_ID)
+public class BadKarmaEvents {
     @SubscribeEvent
-    private static void playerTick(PlayerTickEvent.Post event) {
+    private static void trySpawningJack(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
         Level level = player.level();
         WickednessCap wickednessCap = CapabilityRegistry.getWickedness(player);
@@ -61,14 +65,16 @@ public class SpawnJackOLanternEvent {
         ServerLevel serverLevel = (ServerLevel) level;
 
         Vindicator vindicator = EntityType.VINDICATOR.create(level);
+        assert vindicator != null;
         vindicator.setCustomName(Component.literal("Jack-o'-lantern"));
         vindicator.setPersistenceRequired();
         vindicator.setCanPickUpLoot(false);
 
-        vindicator.getAttribute(Attributes.SCALE).setBaseValue(2d);
-        vindicator.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(20);
-        vindicator.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(64);
-        vindicator.getAttribute(Attributes.MAX_HEALTH).setBaseValue(200);
+        setMonsterAttributeValue(vindicator, Attributes.SCALE, 2d);
+        setMonsterAttributeValue(vindicator, Attributes.ATTACK_DAMAGE, 20d);
+        setMonsterAttributeValue(vindicator, Attributes.FOLLOW_RANGE, 64d);
+        setMonsterAttributeValue(vindicator, Attributes.MAX_HEALTH, 200d);
+
         vindicator.setHealth(200);
         vindicator.setSpeed(1);
 
@@ -82,5 +88,12 @@ public class SpawnJackOLanternEvent {
         vindicator.setPos(spawnPos.getX()+Math.random()*30, spawnPos.getY()+1, spawnPos.getZ()+Math.random()*30);
 
         level.addFreshEntity(vindicator);
+    }
+
+    private static void setMonsterAttributeValue(Monster monster, Holder<Attribute> attributeHolder, Double value) {
+        AttributeInstance attributeInstance = monster.getAttribute(attributeHolder);
+        if (attributeInstance != null) {
+            attributeInstance.setBaseValue(value);
+        }
     }
 }

@@ -15,8 +15,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
-@EventBusSubscriber
-public class AddWickednessEvent {
+@EventBusSubscriber(modid = Reference.MOD_ID)
+public class AddWickednessEvents {
     @SubscribeEvent
     public static void onAnimalDeath(LivingDeathEvent event) {
         Entity entity = event.getEntity();
@@ -57,6 +57,6 @@ public class AddWickednessEvent {
         return (entityType.is(ModTags.Entities.LOW_WICKEDNESS_ENTITIES) ||
                 entityType.is(ModTags.Entities.MID_WICKEDNESS_ENTITIES) ||
                 entityType.is(ModTags.Entities.HIGH_WICKEDNESS_ENTITIES)
-                );
+        );
     }
 }
